@@ -1,4 +1,4 @@
-<nz-sider [(nzCollapsed)]="isCollapsed"   nzBreakpoint="lg"  nzWidth="240px" class="menu-sidebar" nzTheme="light" >
+<nz-sider nzBreakpoint="lg"  nzWidth="240px" class="menu-sidebar" nzTheme="light" >
   <div class="sidebar-logo">
       <img alt="logo" src="https://www.eaton.com/content/dam/eaton/global/logos/eaton-logo-small.png" (click)="collapsed()">
     <a routerLink="/">
@@ -29,10 +29,16 @@
       </a>
     </li>
   </ul>
-  <div nz-row class="logout">
-    <div class="logout-button" nz-col nzLg="12" nzXs="24" nzMd="24" nzSm="24" nzXXl="12" nzXl="12" >
-        <a (click)="logout()"><img width="30px" height="30px" src="" crossorigin="anonymous" alt=""/>{{'dashboard.logout' | translate}}</a>
-    </div>
-  </div>
+  <ul class="logout" nz-menu nzMode="inline" nzTheme="light">
+    <li nz-menu-item nzMatchRouter>
+      <a routerLink="/devices">
+        <img width="15px" height="15px" src="" crossorigin="anonymous" alt=""/>
+        <span *ngIf="!isCollapsed" (click)="logout()">
+      {{'dashboard.logout' | translate}}
+      </span>
+      </a>
+    </li>
+  </ul>
+
 </nz-sider>
 <router-outlet></router-outlet>
