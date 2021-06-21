@@ -1,3 +1,12 @@
 <div>
   DATA SHOW PAGE
+  <div class="devices">
+    <nz-card class="device" *ngFor="let device of devices " nzTitle="Ups Device" [nzExtra]="extraTemplate">
+      <p>{{device.name}}</p>
+      <p>{{device.uuid}}</p>
+    </nz-card>
+    <ng-template #extraTemplate>
+      <a>More</a>
+    </ng-template>
+  </div>
 </div>

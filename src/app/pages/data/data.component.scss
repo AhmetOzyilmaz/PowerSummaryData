@@ -1,3 +1,15 @@
 :host {
   width: 100%;
 }
+
+.devices{
+  max-width: 1100px;
+  overflow: hidden;
+  display: flex;
+  flex-wrap: wrap;
+
+  .device{
+    margin: 10px 0px 10px 0px;
+    width: 20%;
+  }
+}

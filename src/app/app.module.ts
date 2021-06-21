@@ -45,6 +45,7 @@ import {JWT_OPTIONS, JwtHelperService, JwtModule} from '@auth0/angular-jwt';
 import {NzEmptyModule} from 'ng-zorro-antd/empty';
 import {AuthorizationService} from './shared/service/authorization.service';
 import {TranslateHttpLoader} from "@ngx-translate/http-loader";
+import {DataMockService} from "./shared/service/data-mock.service";
 
 // required for AOT compilation
 export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
@@ -104,6 +105,7 @@ registerLocaleData(en);
   ],
   providers: [
     AuthorizationService,
+    DataMockService,
     {provide: JWT_OPTIONS, useValue: JWT_OPTIONS},
     JwtHelperService,
     {provide: NZ_I18N, useValue: tr_TR},
