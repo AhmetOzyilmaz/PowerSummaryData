@@ -13,10 +13,8 @@ export class LoginComponent  implements OnInit{
   isVisible = false;
 
   loginFormGroup = new FormGroup({
-    username: new FormControl('', [Validators.required]),
+    email: new FormControl('', [Validators.required]),
     password: new FormControl('', [Validators.required]),
-    remember: new FormControl(false),
-    resetPasswordMail: new FormControl('')
   });
 
   constructor(
@@ -47,7 +45,10 @@ export class LoginComponent  implements OnInit{
         this.loginFormGroup.controls[i].updateValueAndValidity();
       }
     }
-    localStorage.setItem("token","xxxxxxx");
-    this.router.navigate(['/'])
+
+    if(this.loginFormGroup.get("email").value !== '' && this.loginFormGroup.get("password").value !== '' ){
+      localStorage.setItem("token","xxxxxxx");
+      this.router.navigate(['/'])
+    }
   }
 }

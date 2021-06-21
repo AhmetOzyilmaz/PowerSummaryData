@@ -5,11 +5,11 @@
   },
   "login": {
     "title": "Login",
-    "username": "Username",
+    "email": "email",
     "password": "Password",
     "login": "Login",
-    "username-error": "Please enter your username!",
-    "password-error": "Please enter your password!",
+    "email-error": "Please enter your email!",
+    "password-error": "Please enter your password!"
   },
   "dashboard": {
     "logout": "Logout",
