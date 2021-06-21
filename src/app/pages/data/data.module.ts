@@ -6,6 +6,8 @@ import { NzFormModule } from 'ng-zorro-antd/form';
 import { DataRoutingModule } from './data-routing.module';
 import { DataComponent } from './data.component';
 import {NzCardModule} from "ng-zorro-antd/card";
+import {NzDividerModule} from "ng-zorro-antd/divider";
+import {NzTableModule} from "ng-zorro-antd/table";
 
 @NgModule({
   imports: [
@@ -14,7 +16,9 @@ import {NzCardModule} from "ng-zorro-antd/card";
     FormsModule,
     NzButtonModule,
     NzFormModule,
-    NzCardModule
+    NzCardModule,
+    NzDividerModule,
+    NzTableModule
   ],
   declarations: [DataComponent],
   exports: [DataComponent],

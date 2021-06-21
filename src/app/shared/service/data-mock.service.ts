@@ -2,11 +2,13 @@ import {Inject} from "@angular/core";
 import {Device} from "../dto/device";
 
 import * as uuid from 'uuid';
+import {Observable, of} from "rxjs";
+import {DeviceData} from "../dto/device-data";
 
 @Inject({providedIn: 'root',})
 export class DataMockService {
 
-  getDevice(num: number) {
+  getDevice(num: number) : Observable<Device[]> {
     let devices = [] as Device[];
 
     for (let i = 0; i < num; ++i) {
@@ -16,6 +18,23 @@ export class DataMockService {
           uuid: uuid.v4()
         })
     }
-    return devices
+    return of(devices);
+  }
+
+  getDeviceDatas(deviceIds: string[]): Observable<DeviceData[]> {
+    let devicesData = [] as DeviceData[];
+
+    for (let i = 0; i < deviceIds.length; ++i) {
+      const batteryPercentage =  Math.floor(Math.random() * 100) + 1;
+      devicesData.push(
+        {
+          batteryPercentage: batteryPercentage + '%',
+          createDate: null,
+          deviceId: deviceIds[i],
+          lastUpdateDate: null,
+          status: batteryPercentage < 50 ? 'LOW' : 'HIGH'
+        })
+    }
+    return of(devicesData);
   }
 }

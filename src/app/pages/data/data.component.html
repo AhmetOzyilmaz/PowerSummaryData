@@ -9,4 +9,31 @@
       <a>More</a>
     </ng-template>
   </div>
+
+  <div class="device-table">
+    <nz-table #devicesDatasId [nzData]="devicesDatas">
+      <thead>
+      <tr>
+        <th>deviceId</th>
+        <th>lastUpdateDate</th>
+        <th>createDate</th>
+        <th>batteryPercentage</th>
+        <th>status</th>
+        <th>Action</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let data of devicesDatasId.data">
+        <td>{{ data.deviceId }}</td>
+        <td>{{ data.lastUpdateDate }}</td>
+        <td>{{ data.createDate }}</td>
+        <td>{{ data.batteryPercentage }}</td>
+        <td>{{ data.status }}</td>
+        <td>
+          <a>Delete</a>
+        </td>
+      </tr>
+      </tbody>
+    </nz-table>
+  </div>
 </div>

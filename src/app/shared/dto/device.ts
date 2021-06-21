@@ -1,5 +1,5 @@
 
-export class Device {
+export interface Device {
   uuid : string;
   name: string;
 }

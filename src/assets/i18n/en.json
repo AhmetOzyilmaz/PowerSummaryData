@@ -14,7 +14,8 @@
   "dashboard": {
     "logout": "Logout",
     "user-email": "User",
-    "power": "Power"
+    "power": "Power",
+    "devices": "Devices"
   },
   "welcome": {
     "title": "Welcome"

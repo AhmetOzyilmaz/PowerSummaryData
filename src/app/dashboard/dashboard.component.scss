@@ -9,17 +9,7 @@ $color: #7cb0db;
 .app-layout {
   height: 100vh;
 }
-#userEmail{
-  display: block;
-  width: 80%;
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  margin-left: 0;
-}
-#corporation{
-  margin-left: 0;
-}
+
 .dashboard-sidebar img{
   margin-right: 8px;
 }
@@ -27,9 +17,7 @@ $color: #7cb0db;
   color: #5ca1d7;
   margin-left: 5px;
 }
-.tenant-name{
-  margin-left: 5px;
-}
+
 p{
   font-size: 12px;
   height: 5px;
@@ -107,11 +95,10 @@ nz-layout {
   height: 64px;
   padding: 0;
   background: #fff;
-  box-shadow: 0 1px 4px rgba(0,21,41,.08);
 }
 
 nz-content {
-  margin: 24px;
+  //margin: 24px;
 }
 
 .inner-content {

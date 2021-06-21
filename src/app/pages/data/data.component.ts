@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {DataMockService} from "../../shared/service/data-mock.service";
 import {Device} from "../../shared/dto/device";
+import {DeviceData} from "../../shared/dto/device-data";
 
 @Component({
   selector: 'app-data',
@@ -9,9 +10,14 @@ import {Device} from "../../shared/dto/device";
 })
 export class DataComponent implements OnInit {
   devices : Device[] ;
+  devicesDatas : DeviceData[];
 
   constructor(private dataMockService : DataMockService) {
-    this.devices = this.dataMockService.getDevice(10);
+    this.dataMockService.getDevice(10).subscribe( d => {
+      this.devices = d;
+      const deviceIds = this.devices.map(o => o.uuid);
+      this.dataMockService.getDeviceDatas(deviceIds).subscribe( data => this.devicesDatas = data);
+    });
   }
 
   ngOnInit(): void {

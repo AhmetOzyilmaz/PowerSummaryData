@@ -15,11 +15,6 @@ export class DashboardComponent implements OnInit {
   }
 
   ngOnInit() {
-    const emailStr = localStorage.getItem('email');
-    if (emailStr) {
-      this.email = JSON.parse(emailStr);
-    }
-
     this.changeDetectorRef.detectChanges();
     this.tokenSetInterval = setInterval(() => {
       this.controlTokenExpired();
