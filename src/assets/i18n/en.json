@@ -1,0 +1,22 @@
+{
+  "global": {
+    "password": "Password",
+    "confirm-password": "Confirm Password",
+  },
+  "login": {
+    "title": "Login",
+    "username": "Username",
+    "password": "Password",
+    "login": "Login",
+    "username-error": "Please enter your username!",
+    "password-error": "Please enter your password!",
+  },
+  "dashboard": {
+    "logout": "Logout",
+    "user-email": "User",
+    "power": "Power"
+  },
+  "welcome": {
+    "title": "Welcome"
+  }
+}

@@ -1,0 +1,53 @@
+<div class="login">
+  <div class="container" nz-row >
+    <form [formGroup]="loginFormGroup" class="form" nz-form>
+      <div nz-row class="justify-content-center mb-4">
+        <h4>Power</h4>
+      </div>
+      <div nz-row class="justify-content-center my-3">
+        <img class="text-center cursor-pointer" style="width: 200px; height: 70px;" src="https://www.eaton.com/content/dam/eaton/global/logos/eaton-logo-small.png" alt="Power Icon" routerLink="/">
+      </div>
+      <div nz-row class="justify-content-center mt-4">
+        <h5>{{'login.title' | translate}}</h5>
+      </div>
+      <nz-divider></nz-divider>
+      <nz-form-item>
+        <nz-form-control nzErrorTip="{{'login.username-error' | translate}}">
+          <nz-input-group nzPrefixIcon="user">
+            <input nzSize="large" formControlName="username" nz-input placeholder="{{'login.username' | translate}}" type="text"/>
+          </nz-input-group>
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item>
+        <nz-form-control nzErrorTip="{{'login.password-error' | translate }}">
+          <nz-input-group nzPrefixIcon="lock">
+            <input nzSize="large" formControlName="password" nz-input placeholder="{{'login.password' | translate}}" type="password"/>
+          </nz-input-group>
+        </nz-form-control>
+      </nz-form-item>
+
+      <button [nzType]="'primary'" class="login-form-button my-2" nz-button nzSize="large" (click)="loginInit()">{{'login.login' | translate}}
+      </button>
+      <button [nzType]="'primary'" class="login-form-button my-2" nz-button nzSize="large"
+              routerLink="/register">{{'login.register' | translate}}
+      </button>
+      <div nz-row class="justify-content-center mt-4">
+        <a class="login-form-forgot"  (click)="showModal()">{{'login.forgot-password' | translate}}</a>
+      </div>
+      <nz-modal [(nzVisible)]="isVisible" nzTitle="{{'login.password-reset' | translate }}" (nzOnCancel)="handleCancel()">
+        <div *nzModalContent>
+          <p>{{'login.email-address' | translate}}</p>
+          <div class="example-input">
+            <input formControlName="resetPasswordMail" type="email" nz-input placeholder="E-mail" nzSize="default"/>
+          </div>
+        </div>
+        <div *nzModalFooter>
+          <button nz-button class="modal-btn" (click)="handleOk()"
+                  [nzLoading]="isConfirmLoading">{{'login.send' | translate}}</button>
+          <button nz-button class="modal-btn" (click)="handleCancel()">{{'login.cancel' | translate }}</button>
+        </div>
+      </nz-modal>
+    </form>
+  </div>
+</div>
+

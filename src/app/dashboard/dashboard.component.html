@@ -1,0 +1,38 @@
+<nz-sider [(nzCollapsed)]="isCollapsed"   nzBreakpoint="lg"  nzWidth="240px" class="menu-sidebar" nzTheme="light" >
+  <div class="sidebar-logo">
+      <img alt="logo" src="https://www.eaton.com/content/dam/eaton/global/logos/eaton-logo-small.png" (click)="collapsed()">
+    <a routerLink="/">
+      <h1>Power</h1>
+    </a>
+  </div>
+  <div nz-row class="profile-information">
+    <div nz-col nzXs="24" nzSm="24" nzMd="24" nzLg="24" nzXl="24" class="sidebar-info">
+        <span *ngIf="isCollapsed">
+          <h6>{{'dashboard.power' | translate}}</h6>
+        </span>
+      <span *ngIf="!isCollapsed">
+        <div nz-row>
+      <div nz-col nzXs="24" nzSm="24" nzMd="24" nzLg="24" nzXl="24" class="sidebar-info">
+        <h6 id="corporation"> Interview Case</h6>
+      </div>
+        </div>
+      </span>
+    </div>
+  </div>
+  <ul class="dashboard-sidebar" nz-menu nzMode="inline" nzTheme="light">
+    <li nz-menu-item nzMatchRouter>
+      <a routerLink="/data">
+      <img width="15px" height="15px" src="" crossorigin="anonymous" alt=""/>
+      <span *ngIf="!isCollapsed">
+      {{'dashboard.ask-price' | translate}}
+      </span>
+      </a>
+    </li>
+  </ul>
+  <div nz-row class="logout">
+    <div class="logout-button" nz-col nzLg="12" nzXs="24" nzMd="24" nzSm="24" nzXXl="12" nzXl="12" >
+        <a (click)="logout()"><img width="30px" height="30px" src="" crossorigin="anonymous" alt=""/>{{'dashboard.logout' | translate}}</a>
+    </div>
+  </div>
+</nz-sider>
+<router-outlet></router-outlet>
