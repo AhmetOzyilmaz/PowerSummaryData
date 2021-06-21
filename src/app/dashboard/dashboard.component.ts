@@ -1,8 +1,5 @@
 import {ChangeDetectorRef, Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
-import {TranslateService} from '@ngx-translate/core';
-import {JwtHelperService} from '@auth0/angular-jwt';
-
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
@@ -14,9 +11,7 @@ export class DashboardComponent implements OnInit {
   tokenSetInterval;
 
   constructor(private router: Router,
-              private changeDetectorRef: ChangeDetectorRef,
-              private translateService: TranslateService,
-              private jwtHelperService: JwtHelperService) {
+              private changeDetectorRef: ChangeDetectorRef) {
   }
 
   ngOnInit() {
@@ -43,8 +38,7 @@ export class DashboardComponent implements OnInit {
 
   controlTokenExpired(): void {
     const token = localStorage.getItem('token');
-    const isTokenExpired = this.jwtHelperService.isTokenExpired(token);
-    if (isTokenExpired) {
+    if (token == undefined || token == null) {
       this.router.navigateByUrl('/login');
       localStorage.clear();
       clearInterval(this.tokenSetInterval);

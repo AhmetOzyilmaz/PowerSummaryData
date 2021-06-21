@@ -15,25 +15,18 @@ import {AuthorizationService} from '../service/authorization.service';
 export class AuthorizationGuard implements CanActivate, CanActivateChild {
   constructor(private authorizationService: AuthorizationService, private router: Router) {}
   canActivate(next: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
-    const allowedRoles = next.data.allowedRoles;
-    const isAuthorized = this.authorizationService.isAuthorized(allowedRoles);
-
-    if (!isAuthorized) {
-      this.router.navigate(['/']);
-    }
-
-    return isAuthorized;
+    return this.authorize();
   }
   canActivateChild(next: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
-    const allowedRoles = next.data.allowedRoles;
-    const isAuthorized = this.authorizationService.isAuthorized(allowedRoles);
+    return this.authorize()
+  }
 
+  private authorize(): Observable<boolean> | Promise<boolean> | boolean {
+    const isAuthorized = this.authorizationService.isAuthorized();
     if (!isAuthorized) {
       this.router.navigate(['/']);
     }
     return isAuthorized;
   }
-
-
 
 }
