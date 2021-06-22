@@ -20,7 +20,7 @@ const routes: Routes = [
     ],
   },
 
-  {path: 'login', component: LoginComponent, canActivate: [LoginGuard]},
+  {path: 'login', component: LoginComponent},
   {path: '**', redirectTo: '404', pathMatch: 'full'},
 ];
 

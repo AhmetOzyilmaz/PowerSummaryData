@@ -18,13 +18,13 @@ export class AuthorizationGuard implements CanActivate, CanActivateChild {
     return this.authorize();
   }
   canActivateChild(next: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
-    return this.authorize()
+    return this.authorize();
   }
 
   private authorize(): Observable<boolean> | Promise<boolean> | boolean {
     const isAuthorized = this.authorizationService.isAuthorized();
     if (!isAuthorized) {
-      this.router.navigate(['/']);
+      this.router.navigate(['/login']);
     }
     return isAuthorized;
   }

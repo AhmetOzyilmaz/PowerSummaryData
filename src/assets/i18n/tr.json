@@ -7,8 +7,6 @@
     "title": "Login",
     "email": "email",
     "password": "Password",
-    "register": "Register",
-    "forgot-password": "Forgot Password",
     "login": "Login",
     "email-error": "Please enter your email!",
     "password-error": "Please enter your password!"
@@ -19,7 +17,7 @@
     "power": "Power",
     "devices": "Devices"
   },
-  "data": {
-    "delete": "Delete"
+  "welcome": {
+    "title": "Welcome"
   }
 }

@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../../shared/service/auth.service';
+import {environment} from "../../../environments/environment";
 
 @Component({
   selector: 'app-login',
@@ -23,6 +24,7 @@ export class LoginComponent  implements OnInit{
     private router: Router) {}
 
   ngOnInit(): void {
+    localStorage.clear();
   }
 
 
@@ -46,9 +48,9 @@ export class LoginComponent  implements OnInit{
       }
     }
 
-    if(this.loginFormGroup.get("email").value !== '' && this.loginFormGroup.get("password").value !== '' ){
-      localStorage.setItem("token","xxxxxxx");
-      this.router.navigate(['/'])
+    if (this.loginFormGroup.get('email').value === environment.username && this.loginFormGroup.get('password').value === environment.password ){
+      localStorage.setItem('token', 'xxxxxxx');
+      this.router.navigate(['/']);
     }
   }
 }

@@ -8,6 +8,13 @@ import { DataComponent } from './data.component';
 import {NzCardModule} from "ng-zorro-antd/card";
 import {NzDividerModule} from "ng-zorro-antd/divider";
 import {NzTableModule} from "ng-zorro-antd/table";
+import {TranslateLoader, TranslateModule} from "@ngx-translate/core";
+import {HttpClient} from "@angular/common/http";
+import {TranslateHttpLoader} from "@ngx-translate/http-loader";
+
+export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
+  return new TranslateHttpLoader(http);
+}
 
 @NgModule({
   imports: [
@@ -18,7 +25,15 @@ import {NzTableModule} from "ng-zorro-antd/table";
     NzFormModule,
     NzCardModule,
     NzDividerModule,
-    NzTableModule
+    NzTableModule,
+    TranslateModule.forRoot({
+      defaultLanguage: 'en',
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient],
+      },
+    }),
   ],
   declarations: [DataComponent],
   exports: [DataComponent],

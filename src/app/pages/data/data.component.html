@@ -30,7 +30,7 @@
         <td>{{ data.batteryPercentage }}</td>
         <td>{{ data.status }}</td>
         <td>
-          <a>Delete</a>
+          <a (click)="deleteDeviceData()">{{ 'data.delete' | translate }}</a>
         </td>
       </tr>
       </tbody>

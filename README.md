@@ -10,3 +10,6 @@ OS: win32 x64
     -> Login Page
     -> Landing Page
     -> Devices Page
+
+Login username : "aozyilmaz35@gmail.com"
+      password: "aozyilmaz35@gmail.com"
