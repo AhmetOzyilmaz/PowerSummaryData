@@ -1,21 +1,11 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
-  "cli": {
-    "analytics": "9353828d-3d62-4fec-9314-32324163564e"
-  },
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "qunestus-web": {
+    "power": {
       "projectType": "application",
-      "schematics": {
-        "@schematics/angular:component": {
-          "style": "scss"
-        },
-        "@schematics/angular:application": {
-          "strict": true
-        }
-      },
+      "schematics": {},
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
@@ -23,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/qunestus-web",
+            "outputPath": "dist/power",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -31,14 +21,20 @@
             "aot": true,
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              {
+                "glob": "**/*",
+                "input": "./node_modules/@ant-design/icons-angular/src/inline-svg/",
+                "output": "/assets/"
+              }
             ],
             "styles": [
-              "src/theme.less",
-              "src/styles.scss",
-              "./node_modules/bootstrap/dist/css/bootstrap.min.css"
+              "src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/jquery/dist/jquery.js",
+              "src/assets/lib/hljs/highlight.pack.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -54,25 +50,37 @@
               "namedChunks": false,
               "extractLicenses": true,
               "vendorChunk": false,
-              "buildOptimizer": true
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
             }
           }
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "qunestus-web:build"
+            "browserTarget": "power:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "qunestus-web:build:production"
+              "browserTarget": "power:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "qunestus-web:build"
+            "browserTarget": "power:build"
           }
         },
         "test": {
@@ -87,7 +95,7 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.css"
             ],
             "scripts": []
           }
@@ -109,16 +117,19 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "qunestus-web:serve"
+            "devServerTarget": "power:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "qunestus-web:serve:production"
+              "devServerTarget": "power:serve:production"
             }
           }
         }
       }
     }
   },
-  "defaultProject": "qunestus-web"
+  "defaultProject": "power",
+  "cli": {
+    "analytics": false
+  }
 }

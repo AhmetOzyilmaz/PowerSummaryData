@@ -30,7 +30,7 @@
     "max-classes-per-file": false,
     "max-line-length": [
       true,
-      200
+      140
     ],
     "member-ordering": [
       true,
@@ -139,13 +139,13 @@
     "directive-selector": [
       true,
       "attribute",
-      "qn",
+      "app",
       "camelCase"
     ],
     "component-selector": [
       true,
       "element",
-      "qn",
+      "app",
       "kebab-case"
     ]
   }
