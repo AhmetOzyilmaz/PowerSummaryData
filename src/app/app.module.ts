@@ -46,6 +46,7 @@ import {NzEmptyModule} from 'ng-zorro-antd/empty';
 import {AuthorizationService} from './shared/service/authorization.service';
 import {TranslateHttpLoader} from "@ngx-translate/http-loader";
 import {DataMockService} from "./shared/service/data-mock.service";
+import {CustomModalService} from "./shared/service/custome-modal.service";
 
 // required for AOT compilation
 export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
@@ -127,7 +128,8 @@ registerLocaleData(en);
       provide: HTTP_INTERCEPTORS,
       useClass: TokenExpiredInterceptor,
       multi: true
-    }
+    },
+    CustomModalService
   ],
   bootstrap: [AppComponent],
 })

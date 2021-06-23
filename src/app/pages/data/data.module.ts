@@ -11,6 +11,7 @@ import {NzTableModule} from "ng-zorro-antd/table";
 import {TranslateLoader, TranslateModule} from "@ngx-translate/core";
 import {HttpClient} from "@angular/common/http";
 import {TranslateHttpLoader} from "@ngx-translate/http-loader";
+import {NzModalModule} from "ng-zorro-antd/modal";
 
 export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
   return new TranslateHttpLoader(http);
@@ -26,6 +27,7 @@ export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
     NzCardModule,
     NzDividerModule,
     NzTableModule,
+    NzModalModule,
     TranslateModule.forRoot({
       defaultLanguage: 'en',
       loader: {
