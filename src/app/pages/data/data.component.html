@@ -1,5 +1,4 @@
 <div>
-  DATA SHOW PAGE
   <div class="devices">
     <nz-card class="device" *ngFor="let device of devices " nzTitle="Ups Device" >
       <p>{{device.name}}</p>
@@ -9,14 +8,14 @@
   </div>
 
   <div class="device-table">
-    <nz-table #devicesDatasId [nzData]="devicesDatas">
+    <nz-table #devicesDatasId [nzData]="devicesDatas" [nzPageSize]="5">
       <thead>
       <tr>
-        <th>deviceId</th>
-        <th>lastUpdateDate</th>
-        <th>createDate</th>
-        <th>batteryPercentage</th>
-        <th>status</th>
+        <th>Device Id</th>
+        <th>Last Update Date</th>
+        <th>Created Date Date</th>
+        <th>Battery Percentage</th>
+        <th>Status</th>
         <th>Action</th>
       </tr>
       </thead>

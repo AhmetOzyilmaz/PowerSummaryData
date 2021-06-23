@@ -12,6 +12,7 @@ import {TranslateLoader, TranslateModule} from "@ngx-translate/core";
 import {HttpClient} from "@angular/common/http";
 import {TranslateHttpLoader} from "@ngx-translate/http-loader";
 import {NzModalModule} from "ng-zorro-antd/modal";
+import {NzPaginationModule} from "ng-zorro-antd/pagination";
 
 export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
   return new TranslateHttpLoader(http);
@@ -28,6 +29,7 @@ export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
     NzDividerModule,
     NzTableModule,
     NzModalModule,
+    NzPaginationModule,
     TranslateModule.forRoot({
       defaultLanguage: 'en',
       loader: {
